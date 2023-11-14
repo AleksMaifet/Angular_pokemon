@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IPokemon } from '@app/services';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 
 @Component({
   selector: 'app-child',
