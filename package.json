@@ -1,6 +1,5 @@
 {
   "name": "pokemon",
-  "homepage": "https://AleksMaifet.github.io/Angular_pokemon",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -8,9 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint --fix",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "ng lint --fix"
   },
   "private": true,
   "dependencies": {
@@ -31,7 +28,6 @@
     "@angular/cli": "^17.0.0",
     "@angular/compiler-cli": "^17.0.0",
     "@types/jasmine": "~5.1.0",
-    "gh-pages": "^6.0.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
