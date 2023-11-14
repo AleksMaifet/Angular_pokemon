@@ -1,13 +1,11 @@
 <ul>
   <ng-container *ngFor='let pokemon of pokemonList; let oddFruit = odd; let evenFruit = even'>
-  <li class='pokemon_container'>
+    <li class='pokemon_container'>
       <p [ngClass]="{'odd': oddFruit, 'even': evenFruit }">
         {{ pokemon.name }}
       </p>
-      <img alt='{{ pokemon.name }}'
-           src='https://raw.githubusercontent.com/PokeAPI
-           /sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/{{ pokemon.id }}.gif'
-      >
+
+      <img alt='{{ pokemon.name }}' [src]='getPokemonImageUrl(pokemon.id)'>
     </li>
   </ng-container>
 </ul>
