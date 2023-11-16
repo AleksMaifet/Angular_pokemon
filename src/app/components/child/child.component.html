@@ -1,14 +1,20 @@
-<ul>
-  <ng-container *ngFor='let pokemon of pokemonList; let oddFruit = odd; let evenFruit = even'>
-    <li class='pokemon_container'>
-      <p [ngClass]="{'odd': oddFruit, 'even': evenFruit }">
-        {{ pokemon.name }}
-      </p>
+<h1 class='even' *ngIf='error; else content'>WE HAVE GOT ERROR! CHECK NETWORKING!</h1>
 
-      <img alt='{{ pokemon.name }}' [src]='getPokemonImageUrl(pokemon.id)'>
-    </li>
-  </ng-container>
-</ul>
+<ng-template #content>
+  <ul>
+    <ng-container *ngFor='let pokemon of pokemonList; let oddFruit = odd; let evenFruit = even'>
+      <li class='pokemon_container'>
+        <p [ngClass]="{'odd': oddFruit, 'even': evenFruit }">
+          {{ pokemon.name }}
+        </p>
+
+        <img alt='{{ pokemon.name }}' [src]='getPokemonImageUrl(pokemon.id)'>
+      </li>
+    </ng-container>
+  </ul>
+</ng-template>
+
+
 
 
 
