@@ -1,7 +1,13 @@
 <h1 class='even' *ngIf='error; else content'>WE HAVE GOT ERROR! CHECK NETWORKING!</h1>
 
 <ng-template #content>
-  <ul>
+  <ul
+    class='search-results'
+    infiniteScroll
+    [infiniteScrollDistance]='scrollDistance'
+    [infiniteScrollThrottle]='throttle'
+    (scrolled)='onScroll()'
+  >
     <ng-container *ngFor='let pokemon of pokemonList; let oddFruit = odd; let evenFruit = even'>
       <li class='pokemon_container'>
         <p [ngClass]="{'odd': oddFruit, 'even': evenFruit }">

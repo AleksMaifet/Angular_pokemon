@@ -12,6 +12,8 @@ export class PokemonService {
   error$: BehaviorSubject<Nullable<HttpErrorResponse>> = new BehaviorSubject<
     Nullable<HttpErrorResponse>
   >(null);
+  offset = 0;
+  defaultLimit = 20;
 
   constructor(private readonly http: HttpClient) {
     this.getPokemonList();
@@ -30,8 +32,8 @@ export class PokemonService {
     this.http
       .get<IResponse>(`${environment.apiUrl}`, {
         params: {
-          offset: 0,
-          limit: 20,
+          offset: this.offset,
+          limit: this.defaultLimit,
         },
       })
       .pipe(
@@ -43,8 +45,15 @@ export class PokemonService {
         }),
       )
       .subscribe(list => {
-        this.pokemonList$.next(list);
+        const updatedPokemonList = this.pokemonList$.getValue().concat(list);
+
+        this.pokemonList$.next(updatedPokemonList);
       });
+  }
+
+  getNextPokemonList() {
+    this.offset += this.defaultLimit;
+    this.getPokemonList();
   }
 
   private catchError = (err: HttpErrorResponse) => {
