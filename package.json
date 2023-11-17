@@ -1,6 +1,5 @@
 {
   "name": "pokemon",
-  "homepage": "https://AleksMaifet.github.io/Angular_pokemon",
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
@@ -9,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint --fix",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d dist/pokemon"
+    "predeploy": "ng build  --base-href https://aleksmaifet.github.io/Angular_pokemon/",
+    "deploy": "gh-pages -d dist/pokemon/browser"
   },
   "private": true,
   "dependencies": {
